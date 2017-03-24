@@ -25,12 +25,14 @@ sigma =  (data' * data)/I;
 [U,~,~]= svd(sigma);
 %Get most significant eigenvector
 Uimp = U(:, 1);
-%project X~ ont U =>Y~
+%project X~ on U =>Y~
 Y =  data * Uimp;
+Xout = zeros(1:I,1);
+Yout = zeros(1:I,1);
 for i=1:I
-Xout = Uimp'(:, 1) * i;
-Yout = Uimp'(:, 2) * i;
+Xout(i) =   -[X(i,1).*Uimp(2, :)];
+Yout(i) =[ Y(i,1).*Uimp(1, :)];
 endfor
-plot(Y(:,1), zeros(I, 1), 'r');
-plot(Xout, Yout, 'g');
+%plot(Y(:,1), zeros(I, 1), 'r');
+scatter(Xout, Yout, 'm');
 hold on

@@ -1,7 +1,7 @@
 %pkg load statistics;
 #####################INTIALIZATION######################
 clear;
-CONVERGENCE = 50;
+CONVERGENCE = 500;
 K = 4;
 K_SIZE = 100;
 I = K_SIZE*K;
